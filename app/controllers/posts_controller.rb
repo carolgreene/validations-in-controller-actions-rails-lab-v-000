@@ -7,11 +7,11 @@ class PostsController < ApplicationController
   def edit
   end
 
-  def update
-    @post.update(post_params)
-    if @post.valid?
-      @post.save
-      redirect_to post_path(@post)
+  def update                            #or can just do:
+    if @post.update(post_params)           #if @post.update(post_params)
+    #if @post.valid?                     #redirect_to post_path(@post)
+      #@post.save                        #else
+      redirect_to post_path(@post)      #render :edit
     else
       render :edit
     end
